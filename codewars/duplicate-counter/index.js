@@ -22,7 +22,17 @@ Test.assertEquals(duplicateCount("Indivisibilities"), 2, "characters may not be 
 
   });
 });
+----------------solution using regex
+function duplicateCount(text){
+  return (text.toLowerCase().split('').sort().join('').match(/([^])\1+/g) || []).length;
+}
 
+----------solution with a filter function
+function duplicateCount(text){
+  return text.toLowerCase().split('').filter(function(val, i, arr){
+    return arr.indexOf(val) !== i && arr.lastIndexOf(val) === i;
+  }).length;
+}
 */
 
 function duplicateCount(text) {
