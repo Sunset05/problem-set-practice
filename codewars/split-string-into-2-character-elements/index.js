@@ -13,3 +13,26 @@ function solution(str) {
 
   return forcedEvenString.match(/../g);
 }
+
+/* OTHER POSSIBLE SOLUTIONS
+  function solution(str){
+  var i = 0;
+  var result = new Array();
+  if (str.length % 2 !== 0) {
+    str = str + '_';
+  }
+  while (i < str.length) {
+      result.push(str[i] + str[i+1]);
+      i += 2;
+    }
+  return result;
+}
+
+if the string is odd add an underscore. while i is less than str.length add str[i] and str[i+1] to the result array as one element and increment i by two to avoid duplicate values
+
+function solution(s){
+   return (s+"_").match(/.{2}/g)||[]
+}
+add an underscore to any string given and run a regex match for two . characters in a row - 2 of any character - globally. if that is a falsy value return an empty array
+
+*/
